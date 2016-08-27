@@ -1,0 +1,16 @@
+#tutorial {
+    border: 1px solid red;
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.section-position {
+    position: absolute;
+    top: 30px;
+}
+
+.section {
+    visibility: hidden;
+}
