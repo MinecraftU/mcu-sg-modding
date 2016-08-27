@@ -6,31 +6,34 @@ permalink: /mcu/
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<link rel="stylesheet" href="/css/mcu.css" />
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-        <script type="text/javascript" src="/js/mcu.js"></script>
-	</head>
-	<body>
+<head>
+  <link rel="stylesheet" href="/css/mcu.css"/>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="/js/mcu.js"></script>
+</head>
 
-		<div id="tutorial">
-            <button id="next">>></button>
-            <button id="previous"><<</button>
+<body>
 
-            {% assign pageCount = site.data.pages.pages %}
-            {% for i in (0..pageCount) %}
+<div id="tutorial">
+  <button id="next">>></button>
+  <button id="previous"><<</button>
 
-            <div id="section_{{ i }}" class="section-position">
-                {% capture sectionPart %}{% include_relative curriculum/section_7/7.{{ i }}.md %}{% endcapture %}
-                {{ sectionPart | markdownify }}
-            </div>
 
-            {% endfor %}
+  {% assign pageCount = site.data.pages.pages %}
+  {% for i in (0..pageCount) %}
 
-        </div>
-        <div id="interaction">
-            <button id="vailidate">check</button>
-            <textarea id="code"></textarea>
-        </div>
-	</body>
+    <div id="section_{{ i }}" class="section-position">
+      {% capture sectionPart %}{% include_relative curriculum/section_7/7.{{ i }}.md %}{% endcapture %}
+      {{ sectionPart | markdownify }}
+    </div>
+
+  {% endfor %}
+
+</div>
+<div id="interaction">
+  <button id="vailidate">check</button>
+  <textarea id="code"></textarea>
+</div>
+
+</body>
 </html>
