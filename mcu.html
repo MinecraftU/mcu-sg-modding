@@ -1,39 +1,46 @@
 ---
 layout: page
-title: mcu
+title: MCU
 permalink: /mcu/
 ---
 
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/css/mcu.css"/>
+  <link rel="stylesheet" href="/css/mcu.css">
   <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="/js/mcu.js"></script>
 </head>
 
 <body>
+  
+  <div id="nav">
+    <button class="next">⇢</button>
+    <button class="previous">⇠</button>
+    <br clear="both">
+  </div>
+  <div id="tutorial">
 
-<div id="tutorial">
-  <button id="next">>></button>
-  <button id="previous"><<</button>
+    {% assign pageCount = site.data.section_7.pages %}
+    {% for i in (0..pageCount) %}
 
+      <div class="section section_{{ i }}">
+        {% capture sectionPart %}
+          {% include_relative curriculum/section_7/7.{{ i }}.md %}
+        {% endcapture %}
+        {{ sectionPart | markdownify }}
+      </div>
 
-  {% assign pageCount = site.data.section_7.pages %}
-  {% for i in (0..pageCount) %}
+    {% endfor %}
+  </div>
 
-    <div id="section_{{ i }}" class="section-position">
-      {% capture sectionPart %}{% include_relative curriculum/section_7/7.{{ i }}.md %}{% endcapture %}
-      {{ sectionPart | markdownify }}
-    </div>
-
-  {% endfor %}
-
-</div>
-<div id="interaction">
-  <button id="vailidate">check</button>
-  <textarea id="code"></textarea>
-</div>
+  <!-- todo: have some code checking: -->
+  <!-- 
+  <div id="interaction">
+    <button id="vailidate">check</button>
+    <textarea id="code"></textarea>
+  </div>
+  -->
 
 </body>
 </html>
