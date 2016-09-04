@@ -1,32 +1,25 @@
-var currentPage = 0;
-
-function pageUpdate() {
-  //alert("works");
-  for (var i = 0; i < 13; i++) {
-    if (i == currentPage) {
-      $("#section_" + i).removeClass("section");
-    }
-    else {
-      $("#section_" + i).addClass("section");
-    }
-
-
+function pageUpdate(change) {
+  var i = $(".section:visible").index() + change;
+  // showing appropriate section
+  $(".section").hide();
+  $("#tutorial .section_" + i).show();
+  // showing/hiding nav buttons
+  if (i) {
+    $("#nav .previous").show();
+  } else {
+    $("#nav .previous").hide();
+  } 
+  if ($("#tutorial .section_" + (i + 1)).length) {
+    $("#nav .next").show();
+  } else {
+    $("#nav .next").hide();
   }
 };
 
-window.onload = pageUpdate;
-
 $(document).ready(function () {
-  $("#next").click(function () {
-    currentPage += 1;
-    pageUpdate();
+  $("#nav button").click(function (e) {
+    pageUpdate($(e.target).hasClass('next') ? 1 : -1);
   });
 
-  $("#previous").click(function () {
-    currentPage -= 1;
-    pageUpdate();
-  });
-
+  pageUpdate(0);
 });
-
-
