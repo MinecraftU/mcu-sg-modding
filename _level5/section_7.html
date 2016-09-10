@@ -1,0 +1,17 @@
+---
+layout: course
+title: Level 5 - Section 7
+permalink: /level5/section_7
+---
+
+{% assign pageCount = site.data.level5.section_7.pages %}
+{% for i in (0..pageCount) %}
+
+<div class="section section_{{ i }} current-section">
+  {% capture sectionPart %}
+  {% include_relative curriculum/section_7/7.{{ i }}.md %}
+  {% endcapture %}
+  {{ sectionPart | markdownify }}
+</div>
+
+{% endfor %}
