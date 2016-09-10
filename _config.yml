@@ -25,3 +25,9 @@ github_username:  MinecraftU
 # Build settings
 markdown: kramdown
 theme: minima
+
+excerpt_separator: ""   # Workaround for http://blog.slaks.net/2013-08-09/jekyll-tag-was-never-closed/
+
+collections:
+  level5:
+    output: true
